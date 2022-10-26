@@ -56,7 +56,7 @@ The training data was collected from a PostgreSQL Database, while the test data 
 
 - <b> Feature Selection </b>: Selecting the best features to use in the ML model by using <a href="https://towardsdatascience.com/feature-selection-using-random-forest-26d7b747597f"> Random Forest </a>. 
 
-- <p align="justify"> <b> Machine Learning Modeling </b>: Training Classificaion Algorithms with cross-validation. The best model was selected to be improved via Bayesian Optimization. More information at <a href="https://github.com/brunodifranco/project-rossmann-sales#6-machine-learning-models">Section 5 </a>. </p>
+- <p align="justify"> <b> Machine Learning Modeling </b>: Training Classificaion Algorithms with cross-validation. The best model was selected to be improved via Bayesian Optimization with Optuna. More information at <a href="https://github.com/brunodifranco/project-rossmann-sales#6-machine-learning-models">Section 5 </a>. </p>
 
 - <b> Model Evaluation </b>: Evaluating the model using two metrics: Precision at K and Recall at K, as well as two curves: Cumulative Gains and Lift Curves. 
 
@@ -65,15 +65,16 @@ The training data was collected from a PostgreSQL Database, while the test data 
 - <p align="justify"> <b> Model Deployment </b>: Providing the ranked customers, alonside a propensity score, in Google Sheets. This is the project's <b> Data Science Product </b>, and it can be accessed from anywhere. More information at <a href="https://github.com/brunodifranco/project-rossmann-sales#7-model-deployment"> Section 6 </a>. </p>
   
 ## 3.2. Tools and techniques used:
-- [Python 3.9.12](https://www.python.org/downloads/release/python-3912/), [Pandas](https://pandas.pydata.org/), [Matplotlib](https://matplotlib.org/), [Seaborn](https://seaborn.pydata.org/) and [Sklearn](https://scikit-learn.org/stable/).
+- [Python 3.10.8](https://www.python.org/downloads/release/python-3108/), [Pandas](https://pandas.pydata.org/), [Matplotlib](https://matplotlib.org/), [Seaborn](https://seaborn.pydata.org/) and [Sklearn](https://scikit-learn.org/stable/).
+- [SQL](https://www.w3schools.com/sql/) and [PostgresSQL](https://www.postgresql.org/).
 - [Jupyter Notebook](https://jupyter.org/) and [VSCode](https://code.visualstudio.com/).
 - [Flask](https://flask.palletsprojects.com/en/2.2.x/) and [Python API's](https://realpython.com/api-integration-in-python/).  
-- [Render Cloud](https://render.com/) and [Telegram Bot](https://core.telegram.org/bots/api).
+- [Render Cloud](https://render.com/) and [Google Sheets](https://www.google.com/sheets/about/).
 - [Git](https://git-scm.com/) and [Github](https://github.com/).
 - [Exploratory Data Analysis (EDA)](https://towardsdatascience.com/exploratory-data-analysis-8fc1cb20fd15). 
 - [Techniques for Feature Selection](https://machinelearningmastery.com/feature-selection-with-real-and-categorical-data/).
-- [Regression Algorithms (Linear and Lasso Regression; Random Forest, XGBoost and LGBM Regressors)](https://towardsdatascience.com/7-of-the-most-commonly-used-regression-algorithms-and-how-to-choose-the-right-one-fc3c8890f9e3).
-- [Cross-Validation Methods](https://medium.com/@soumyachess1496/cross-validation-in-time-series-566ae4981ce4), [Hyperparameter Optimization](https://towardsdatascience.com/7-hyperparameter-optimization-techniques-every-data-scientist-should-know-12cdebe713da) and [Algorithms Performance Metrics (RMSE, MAE, MAPE, R2)](https://machinelearningmastery.com/regression-metrics-for-machine-learning/#:~:text=There%20are%20three%20error%20metrics,Mean%20Absolute%20Error%20(MAE)).
+- [Classification Algorithms (KNN Classifier, Logistic Regression; Random Forest, AdaBoost, CatBoost, XGBoost and LGBM Classifiers)](https://scikit-learn.org/stable/modules/ensemble.html).
+- [Cross-Validation Methods](https://scikit-learn.org/stable/modules/cross_validation.html), [Bayesian Optimization with Optuna](https://optuna.readthedocs.io/en/stable/index.html) and [Learning to Rank Performance Metrics (Precision at K, Recall at K, Cumulative Gains Curve and Lift Curve)](https://medium.com/@m_n_malaeb/recall-and-precision-at-k-for-recommender-systems-618483226c54).
 
 # 5. **Top Business Insights**
 
