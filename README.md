@@ -180,38 +180,9 @@ In addition two curves can be plotted:
 **1) By making 20,000 calls how many interested customers can Insuricare reach with the new model?**
 
 
+![business20k](https://user-images.githubusercontent.com/66283452/198152035-48c27ead-53f8-440e-af92-f049456dac33.png)
+![business40k](https://user-images.githubusercontent.com/66283452/198152040-929e3f17-d07e-401a-892c-50bf9c01f475.png)
 
-
-
-
-
-<p align="justify"> Below there are displayed two tables with brief financial results given by the LGBM model, as the complete financial results will be explained in the next <a href="https://github.com/brunodifranco/project-rossmann-sales#7-model-deployment"> section </a>. </p>
-
-<p align="justify"> A couple interesting metrics to evaluate the financial performance of this solution (<b>LGBM Model</b>) is the MAE and MAPE. Below there's a table with a few stores metrics: </p>
-<div align="center">
-
-| **Store** | **Predictions (€)** | **Worst Scenario (€)** | **Best Scenario (€)** | **MAE (€)** | **MAPE** |
-|:---:|:---:|:---:|:---:|:---:|:---:|
-| 1 | 161,274.69 | 160,988.99 | 161,560.39 | 285.69937 | 0.06472 |
-| 2 | 175,549.76 | 175,192.06 | 175,907.47 | 357.70668 | 0.07338 |
-| 3 | 259,576.04 | 259,077.04 | 260,075.03 | 498.99756 | 0.07215 |
-| ... | ... | ... | ... | ... | ... |
-| 1113 | 238,353.17 | 237,841.04 | 238,865.30 | 512.12600 | 0.07852 |
-| 1114 | 769,997.75 | 767,598.11 | 772,397.39 | 2399.63754 | 0.10164 |
-| 1115 | 254,766.52 | 254,227.68 | 255,305.36 | 538.83848 | 0.07576 |
-</div>
-
-<p align="justify"> According to this model, the sales sum for all stores over the next six weeks is: </p>
-
-<div align="center">
-
-| **Scenario (€)** | **Total Sales of the Next 6 Weeks (€)** |
-|:---:|:---:|
-| Prediction  | 283,786,860.62 |
-| Worst Scenario | 283,094,186.26 |
-| Best Scenario | 284,479,534.97 |
-
-</div>
 
 # 7. **Model Deployment**
 
