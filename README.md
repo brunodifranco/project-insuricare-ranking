@@ -4,19 +4,23 @@
   <img src="https://user-images.githubusercontent.com/66283452/195202224-01bfd468-9f1c-4e83-af60-b101312a98e3.svg" alt="drawing" width="800"/>
 </p>
 
-# 1. **Insuricare and Business Problem**
-<p align="justify"> Rossmann is one of the largest drug store chains in Europe, with operations in Germany, Poland, Hungary, the Czech Republic, Turkey, Albania, Kosovo and Spain. Their sales can be influenced by promotions, competition, school and state holidays, seasonality, locality, etc.</p>
-
-*Obs: The business problem is fictitious, although both company and data are real.*
-
-This **Data Science** project is focused on solving one problem: 
-
-- ### **Rossmann CEO is requiring a sales prediction of the next six weeks for each store, in order to determine the best resource allocation for each store renovation.**
+*Obs: Business problem, company and data are fictitious.*
 
 *The in-depth Python code explanation is available in [this](https://github.com/brunodifranco/project-rossmann-sales/blob/main/rossmann.ipynb) Jupyter Notebook.*
 
+# 1. **Insuricare and Business Problem**
+<p align="justify"> Insuricare is an insurance company that has provided health insurance to its customers, and now they are willing to sell a new vehicle insurance to their clients. To achieve that, Insuricare conducted a research with around 381 thousand customers that bought the health insurance last year, asking each one if they would be interested in buying the new insurance. This data was stored in the company's database, alongside other customers' features. 
+
+Then, Insuricare Sales Team selected around 127 thousand new customers, which are people that didn't respond to the research, to offer the new vehicle insurance. However, due to a limit call <i>restriction*</i> Insuricare must choose a way of selecting which clients to call: </p>
+
+- Either select the customers randomly, which is our <b>baseline model</b>.
+  
+- Or, the Data Science Team will provide, by using a Machine Learning (ML) model, an ordered list of these new customers, based on their propensity score of buying the new insurance.
+
+<i> * Insuricare Sales Team would like to make 20,000 calls, but it can be pushed to 40,000 calls. </i>
+
 # 2. **Data Overview**
-The data was collected from [Kaggle](https://www.kaggle.com/). This [dataset](https://www.kaggle.com/competitions/rossmann-store-sales/data) contains historical sales data for 1,115 Rossmann stores. The initial features descriptions are available below:
+The training data was collected from a PostgreSQL Database, while the test data is available at [Kaggle](https://www.kaggle.com/datasets/anmolkumar/health-insurance-cross-sell-prediction/code). The initial features descriptions are available below:
 
 | **Feature**          | **Definition** |
 |----------------------|----------------|
