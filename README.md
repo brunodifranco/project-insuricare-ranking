@@ -18,25 +18,20 @@ This **Data Science** project is focused on solving one problem:
 # 2. **Data Overview**
 The data was collected from [Kaggle](https://www.kaggle.com/). This [dataset](https://www.kaggle.com/competitions/rossmann-store-sales/data) contains historical sales data for 1,115 Rossmann stores. The initial features descriptions are available below:
 
-| Feature | Definition |
-|---|---|
-| Id | an Id that represents a (Store, Date) duple within the dataset.|
-| Store | a unique Id for each store.|
-| Sales | the turnover for any given day.|
-| DayOfWeek | day of week on which the sale was made (e.g. DayOfWeek=1 -> monday, DayOfWeek=2 -> tuesday, etc).|
-| Date | date on which the sale was made.|
-| Customers | the number of customers on a given day.|
-| Open | an indicator for whether the store was open: 0 = closed, 1 = open.|
-| StateHoliday | indicates a state holiday. Normally all stores, with few exceptions, are closed on state holidays. Note that all schools are closed on public holidays and weekends. a = public holiday, b = Easter holiday, c = Christmas, 0 = None.|
-| SchoolHoliday  | indicates if the (Store, Date) was affected by the closure of public schools.|
-| StoreType  | differentiates between 4 different store models: a, b, c, d.|
-| Assortment | describes an assortment level: a = basic, b = extra, c = extended.|
-| CompetitionDistance | distance in meters to the nearest competitor store.|
-| CompetitionOpenSince(Month/Year)| gives the approximate year and month of the time the nearest competitor was opened.|
-| Promo | indicates whether a store is running a promo on that day.|
-| Promo2 | Promo2 is a continuing and consecutive promotion for some stores: 0 = store is not participating, 1 = store is participating.|
-| Promo2Since(Year/Week)| describes the year and calendar week when the store started participating in Promo2.|
-| PromoInterval | describes the consecutive intervals Promo2 is started, naming the months the promotion is started anew. E.g. "Feb,May,Aug,Nov" means each round starts in February, May, August, November of any given year for that store.|
+| **Feature**          | **Definition** |
+|----------------------|----------------|
+| id                   | Unique ID for the customer|
+| gender               |Gender of the customer|
+| age                  |Age of the customer|
+| region_code          |   Unique code for the region of the customer|
+| policy_sales_channel |Anonymized Code for the channel of outreaching to the customer ie. Different Agents, Over Mail, Over Phone, In Person, etc|
+| driving_license      |0 : Customer does not have DL, 1 : Customer already has DL|
+| vehicle_age          |Age of the Vehicle|
+| vehicle_damage       |Yes : Customer got his/her vehicle damaged in the past. No : Customer didn't get his/her vehicle damaged in the past.|
+| previously_insured   |1 : Customer already has Vehicle Insurance, 0 : Customer doesn't have Vehicle Insurance|
+| annual_premium       |The amount customer needs to pay as premium in the year|
+| vintage              |Number of Days, Customer has been associated with the company|
+| response             | 1 : Customer is interested in the new insurance, 0 : Customer is not interested in the new insurance|
 
 # 3. **Assumptions**
 - Customers column was dropped, because for now there's no information about the amount of customers six weeks into the future. 
