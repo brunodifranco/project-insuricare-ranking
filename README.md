@@ -4,7 +4,7 @@
   <img src="https://user-images.githubusercontent.com/66283452/195202224-01bfd468-9f1c-4e83-af60-b101312a98e3.svg" alt="drawing" width="800"/>
 </p>
 
-# 1. **Rossmann and Business Problem**
+# 1. **Insuricare and Business Problem**
 <p align="justify"> Rossmann is one of the largest drug store chains in Europe, with operations in Germany, Poland, Hungary, the Czech Republic, Turkey, Albania, Kosovo and Spain. Their sales can be influenced by promotions, competition, school and state holidays, seasonality, locality, etc.</p>
 
 *Obs: The business problem is fictitious, although both company and data are real.*
