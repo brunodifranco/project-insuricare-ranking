@@ -109,60 +109,74 @@ The training data was collected from a PostgreSQL Database, while the test data 
 
 # 6. **Machine Learning Models**
 
-<p align="justify"> This was the most fundamental part of this project, since it's in ML modeling where the sales predictions for each store can be made. Six models were trained using time series cross-validation: </p>
+<p align="justify"> This was the most fundamental part of this project, since it's in ML modeling where we can provide an ordered list of these new customers, based on their propensity score of buying the new insurance. Seven models were trained using cross-validation: </p>
 
-- Average Model (used as a baseline model)
-- Linear Regression
-- Lasso Regression (Regularized Linear Regression)
-- Random Forest Regressor
-- XGBoost Regressor
-- Light GBM Regressor
+- KNN Classifier
+- Logistic Regression
+- Random Forest Classifier
+- AdaBoost Classifier
+- CatBoost Classifier
+- XGBoost Classifier 
+- Light GBM Classifier
 
-The initial performance for all six algorithms are displayed below (sorted by RMSE):
+The initial performance for all seven algorithms are displayed below (ordered by Precision at K):
 
 <div align="center">
 
-| **Model Name** | **MAE** | **MAPE** | **RMSE** | **R<sup>2</sup>** |
-|:---:|:---:|:---:|:---:|:---:|
-| LGBM Regressor | 833.23 +/- 121.0 | 0.1178 +/- 0.0093 | 1197.68 +/- 176.39 | 0.8467 +/- 0.0237 |
-| Random Forest Regressor | 838.84 +/- 219.91 | 0.1162 +/- 0.0233 | 1257.62 +/- 321.14 | 0.8409 +/- 0.0527 |
-| XGBoost Regressor | 900.29 +/- 152.53 | 0.1273 +/- 0.0155 | 1293.45 +/- 214.31 | 0.8322 +/- 0.0334 |
-| Average Model (Baseline) | 1354.8 | 0.2064 | 1835.14 | 0.6366 |
-| Linear Regression | 2081.72 +/- 295.57 | 0.3026 +/- 0.0166 | 2953.15 +/- 468.22 | 0.1353 +/- 0.0721 |
-| Lasso Regression | 2116.42 +/- 341.46 | 0.292 +/- 0.0118 | 3058.12 +/- 504.18 | 0.0742 +/- 0.0834 |
-
+|         **Model**        | **Precision at K** | **Recall at K** |
+|:------------------------:|:------------------:|:---------------:|
+|    CatBoost Classifier   | 0.3099 +/- 0.0011  |0.8274 +/- 0.003 |
+|    AdaBoost Classifier   | 0.3098 +/- 0.0018  |0.8273 +/- 0.0049|
+|      LGBM Classifier     | 0.3075 +/- 0.0015  |0.8209 +/- 0.004 | 
+|    Logistic Regression   | 0.3058 +/- 0.0012  |0.8165 +/- 0.0033|
+|      XGB Classifier      | 0.2992 +/- 0.0018  |0.7988 +/- 0.0049|
+| Random Forest Classifier | 0.2949 +/- 0.0014  |0.7874 +/- 0.0037|
+|      KNN Classifier      | 0.2739 +/- 0.003   |0.7314 +/- 0.0081|
 </div>
 
-<p align="justify"> Both Linear Regression and Lasso Regression have worst performances in comparison to the simple Average Model. This shows a nonlinear behavior in our dataset, hence the use of more complex models, such as Random Forest, XGBoost and Light GBM. </p>
+<i>K here is either equal to 20,000 or 40,000, given our business problem. </i>
 
-<p align="justify"> <b> The LGBM model was chosen for Hyperparameter Tuning, since it has the lowest RMSE. Even if we look into other metrics, such as MAPE (on which Random Forest has the best performance), LGBM would still be better to use, because it's much faster to train and tune </b>. </p>
+<p align="justify"> The <b>Light GBM Classifier</b> model will be chosen for hyperparameter tuning, since it's by far the fastest algorithm to train and tune, whilst the results were similar to CatBoost and AdaBoost. </p>
 
-After tuning LGBM's hyperparameters using <a href="https://towardsdatascience.com/hyper-parameter-tuning-in-python-1923797f124f">Random Search</a> the model performance has improved: 
+LGBM speed in comparison to other ensemble algorithms trained in this dataset:
+- 4.7 times faster than CatBoost 
+- 7.1 times faster than XGBoost
+- 30.6 times faster than AdaBoost
+- 63.2 times faster than Random Forest
+
+<p align="justify"> At first glance the models performances don't look so great, and that's due to short amount of variables, on which many are too categorical or binary, or simply those don't have much information content. 
+
+However, <b>for this business problem</b> this isn't a major concern, since the goal here isn't finding the best possible prediction on whether a customer will buy the new insurance or not, but to <b>create a score that ranks clients in a ordered list, so that the sales team can contact them in order to sell the new vehicle insurance</b>.</p>
+
+After tuning LGBM's hyperparameters using [Bayesian Optimization with Optuna](https://optuna.readthedocs.io/en/stable/index.html) the model performance has improved: 
 
 <div align="center">
-	
-| **Model Name** | **MAE** | **MAPE** | **RMSE** | **R<sup>2</sup>** |
-|:---:|:---:|:---:|:---:|:---:|
-| LGBM Regressor | 617.54000 | 0.08940 | 921.52000 | 0.90840 |
-	
+
+|         **Model**        | **Precision at K** | **Recall at K** |
+|:------------------------:|:------------------:|:---------------:|
+|      LGBM Classifier     |       0.33320  	|     0.72000 	  | 
+
 </div>
 
 ## <i>Metrics Definition and Interpretation</i>
 
-<div align="center">
+<p align="justify"> <i> As we're ranking customers in a list, there's no need to look into the more traditional classification metrics, such as accuracy, precision, recall, f1-score, aoc-roc curve, confusion matrix, etc.
 
-| **_Metric_** | **_Definition_** |
-|:---:|:---:|
-| _MAE_ | _Mean Absolute Error_ |
-| _MAPE_ | _Mean Absolute Percentage Error_ |
-| _RMSE_ | _Root Mean Squared Error_ |
-| _R<sup>2</sup>_ | _Coefficient of Determination_ |
+Instead, **ranking metrics** will be used:
 
-</div>
+- **Precision at K** : Shows the fraction of correct predictions made until K out of all predictions. 
+  
+- **Recall at K** : Shows the fraction of correct predictions made until K out of all true examples. 
 
-<p align="justify"> <i> R<sup>2</sup> basically show how well the sales are being predicted by the model, and alongside RMSE isn't the best metric to translate into financial performance, despite being key to check statistical performance. 
+In addition two curves can be plotted: 
 
-Both MAE and MAPE are really useful in explaining the model's business performance. MAE shows how much the model prediction is wrong on average, while MAPE shows how much the model prediction is wrong on average percentage-wise. </i> </p>
+- <b>Cumulative Gains Curve</b>, indicating the percentage of customers, ordered by probability score, containing a percentage of all customers interested in the new insurance. 
+
+- <b>Lift Curve</b>, which indicates how many times the ML model is better than the baseline model (original model used by Insuricare).
+
+
+
+</i> </p>
 
 ## 6.1. Brief Financial Results:
 
