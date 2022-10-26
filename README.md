@@ -37,47 +37,34 @@ The training data was collected from a PostgreSQL Database, while the test data 
 | vintage              |Number of Days, Customer has been associated with the company|
 | response             | 1 : Customer is interested in the new insurance, 0 : Customer is not interested in the new insurance|
 
-# 3. **Assumptions**
-- Customers column was dropped, because for now there's no information about the amount of customers six weeks into the future. 
-- The NaN's in CompetitionDistance were replaced by 3 times the maximum CompetitionDistance in the dataset, because the observations with NaN's are likely stores that are too far, which means there's no competition.
-- Some new features were created in order to best describe the problem: 
+# 3. **Solution Plan**
+## 3.1. How was the problem solved?
 
-| New Feature | Definition |
-|---|---|
-| day/week_of_year/year_week/month/year | day/week_of_year/year_week/month/year extracted from 'date' column.|
-| day/day_of_week/week_of_year/month(sin/cos) | sin/cos component of each period, to capture their cyclical behavior.|
-| competition_time_month| amount of months from competition start.|
-| promo_time_week | time in weeks from when the promotion was active.|
-| state_holiday(christmas/easter_holiday/public_holiday/regular_day)| indicates wheter the sale was made in christmas, easter, public holiday or regular day.|
+<p align="justify"> To provide an ordered list of these new customers, based on their propensity score of buying the new insurance the following steps were performed: </p>
 
-# 4. **Solution Plan**
-## 4.1. How was the problem solved?
+- <b> Understanding the Business Problem </b> : Understanding the main objective Insuricare was trying to achieve and plan the solution to it. 
 
-<p align="justify"> To predict sales values for each store (six weeks in advance) a Machine Learning model was applied. To achieve that, the following steps were performed: </p>
+- <b> Collecting Data </b>: Collecting data from a PostgreSQL Database, as well as from Kaggle.
 
-- <b> Understanding the Business Problem </b> : Understanding the reasons why Rossmann's CEO was requiring that task, and plan the solution. 
+- <b> Data Cleaning </b>: Checking data types and Nan's. Other tasks such as: renaming columns, dealing with outliers, changing data types weren't necessary at this point. 
 
-- <b> Collecting Data </b>: Collecting Rossmann store and sales data from Kaggle.
+- <p align="justify"> <b> Exploratory Data Analysis (EDA) </b>: Exploring the data in order to obtain business experience, look for useful business insights and find important features for the ML model. The top business insights found are available at <a href="https://github.com/brunodifranco/project-rossmann-sales#5-top-business-insights"> Section 4 </a>. </p>
 
-- <b> Data Cleaning </b>: Renaming columns, changing data types and filling NaN's. 
+- <b> Feature Engineering </b>: Editing original features, so that those could be used in the ML model. 
 
-- <p align="justify"> <b> Exploratory Data Analysis (EDA) </b>: Exploring the data in order to obtain business experience, look for useful business insights and find important features for the ML model. The top business insights found are available at <a href="https://github.com/brunodifranco/project-rossmann-sales#5-top-business-insights"> Section 5 </a>. </p>
+- <b> Data Preparation </b>: Applying <a href="https://www.atoti.io/articles/when-to-perform-a-feature-scaling/"> Rescaling Techniques</a> in the data, as well as <a href="https://www.geeksforgeeks.org/feature-encoding-techniques-machine-learning/">Enconding Methods</a>, to deal with categorical variables. 
 
-- <b> Feature Engineering </b>: Creating new features from the original ones, so that those could be used in the ML model. 
+- <b> Feature Selection </b>: Selecting the best features to use in the ML model by using <a href="https://towardsdatascience.com/feature-selection-using-random-forest-26d7b747597f"> Random Forest </a>. 
 
-- <b> Data Preparation </b>: Applying <a href="https://www.atoti.io/articles/when-to-perform-a-feature-scaling/">Normalization and Rescaling Techniques</a> in the data, as well as <a href="https://www.geeksforgeeks.org/feature-encoding-techniques-machine-learning/">Enconding Methods</a> and Response Variable Transformation.
+- <p align="justify"> <b> Machine Learning Modeling </b>: Training Classificaion Algorithms with cross-validation. The best model was selected to be improved via Bayesian Optimization. More information at <a href="https://github.com/brunodifranco/project-rossmann-sales#6-machine-learning-models">Section 5 </a>. </p>
 
-- <b> Feature Selection </b>: Selecting the best features to use in the ML model by applying the <a href="https://www.section.io/engineering-education/getting-started-with-boruta-algorithm/">Boruta Algorithm</a>. 
+- <b> Model Evaluation </b>: Evaluating the model using two metrics: Precision at K and Recall at K, as well as two curves: Cumulative Gains and Lift Curves. 
 
-- <p align="justify"> <b> Machine Learning Modeling </b>: Training Regression Algorithms with time series cross-validation. The best model was selected to be improved via Hyperparameter Tuning. More information at <a href="https://github.com/brunodifranco/project-rossmann-sales#6-machine-learning-models">Section 6 </a>. </p>
+- <b> Results </b>: Translating the ML model's to financial and business performance.
 
-- <b> Model Evaluation </b>: Evaluating the model using four metrics: MAE, MAPE, RMSE and R<sup>2</sup>. 
-
-- <b> Financial Results </b>: Translating the ML model's statistical performance to financial and business performance.
-
-- <p align="justify"> <b> Model Deployment (Telegram Bot) </b>: Implementation of a Telegram Bot that will give you the prediction of any given available store number. This is the project's <b> Data Science Product </b>, and it can be accessed from anywhere. More information at <a href="https://github.com/brunodifranco/project-rossmann-sales#7-model-deployment"> Section 7 </a>. </p>
+- <p align="justify"> <b> Model Deployment </b>: Providing the ranked customers, alonside a propensity score, in Google Sheets. This is the project's <b> Data Science Product </b>, and it can be accessed from anywhere. More information at <a href="https://github.com/brunodifranco/project-rossmann-sales#7-model-deployment"> Section 6 </a>. </p>
   
-## 4.2. Tools and techniques used:
+## 3.2. Tools and techniques used:
 - [Python 3.9.12](https://www.python.org/downloads/release/python-3912/), [Pandas](https://pandas.pydata.org/), [Matplotlib](https://matplotlib.org/), [Seaborn](https://seaborn.pydata.org/) and [Sklearn](https://scikit-learn.org/stable/).
 - [Jupyter Notebook](https://jupyter.org/) and [VSCode](https://code.visualstudio.com/).
 - [Flask](https://flask.palletsprojects.com/en/2.2.x/) and [Python API's](https://realpython.com/api-integration-in-python/).  
