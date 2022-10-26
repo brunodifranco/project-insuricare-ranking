@@ -1,5 +1,7 @@
 <h1 align="center"> Creating a bot that predicts Rossmann future sales</h1>
 
+<p align="center">A learning to rank cross-sell project</p>
+
 <p align="center">
   <img src="https://user-images.githubusercontent.com/66283452/195202224-01bfd468-9f1c-4e83-af60-b101312a98e3.svg" alt="drawing" width="800"/>
 </p>
@@ -37,8 +39,13 @@ The training data was collected from a PostgreSQL Database, while the test data 
 | vintage              |Number of Days, Customer has been associated with the company|
 | response             | 1 : Customer is interested in the new insurance, 0 : Customer is not interested in the new insurance|
 
-# 3. **Solution Plan**
-## 3.1. How was the problem solved?
+# 3. **Business Assumptions and Definitions**
+
+- Cross-selling is strategy used to sell products associated with another product already owned by the customer. In this project, health insurance and vehicle insurance are the products. 
+- Learning to rank is a machine learning application, in order to rank a variable. In this project, we are ranking customers in a list, from the most likely customer to buy the new insurance to the least likely one. This list will be provided by the ML model.
+
+# 4. **Solution Plan**
+## 4.1. How was the problem solved?
 
 <p align="justify"> To provide an ordered list of these new customers, based on their propensity score of buying the new insurance the following steps were performed: </p>
 
@@ -64,7 +71,7 @@ The training data was collected from a PostgreSQL Database, while the test data 
 
 - <p align="justify"> <b> Model Deployment </b>: Providing the ranked customers, alonside a propensity score, in Google Sheets. This is the project's <b> Data Science Product </b>, and it can be accessed from anywhere. More information at <a href="https://github.com/brunodifranco/project-rossmann-sales#7-model-deployment"> Section 6 </a>. </p>
   
-## 3.2. Tools and techniques used:
+## 4.2. Tools and techniques used:
 - [Python 3.10.8](https://www.python.org/downloads/release/python-3108/), [Pandas](https://pandas.pydata.org/), [Matplotlib](https://matplotlib.org/), [Seaborn](https://seaborn.pydata.org/) and [Sklearn](https://scikit-learn.org/stable/).
 - [SQL](https://www.w3schools.com/sql/) and [PostgresSQL](https://www.postgresql.org/).
 - [Jupyter Notebook](https://jupyter.org/) and [VSCode](https://code.visualstudio.com/).
@@ -78,34 +85,26 @@ The training data was collected from a PostgreSQL Database, while the test data 
 
 # 5. **Top Business Insights**
 
- - ### 1st - Stores with basic assortment level are the ones that sell more.
+ - ### 1st - Older customers are more likely to buy the new vehicle insurance.
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/66283452/194964237-f82c668c-3ea3-4373-b562-d18ab0a1f6f4.png" alt="drawing" width="800"/>
+  <img src="https://user-images.githubusercontent.com/66283452/198151697-f82a4e61-cbed-4465-849c-2cf81fd4762c.png" alt="drawing" width="800"/>
 </p>
 
 --- 
-- ### 2nd - Stores with higher number of close competitors sell more.
+- ### 2nd - Customers with older vehicles are more likely to buy vehicle insurance.
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/66283452/194964211-f1215de3-795c-4c2b-9d73-071b50a3cd96.png" alt="drawing" width="850"/>
+  <img src="https://user-images.githubusercontent.com/66283452/198151788-1018458c-8e67-4ead-9d15-76622b4df287.png" alt="drawing" width="850"/>
+</p>
+
+--- 
+
+- ### 3rd - Men are more likely to buy the new vehicle insurance than women.
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/66283452/198151862-4de5cab2-1647-4aae-bc9a-b0772e91ef18.png" alt="drawing" width="850"/>
 </p>
 
 ---
-- ### 3rd - Easter Holiday has the highest average sales, in comparison to other periods.
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/66283452/194964219-b73605bc-87f0-4b0e-9cf9-8026d32d49d5.png" alt="drawing" width="850"/>
-</p>
 
----
-- ### 4th - Stores sell less during the second semester of each year.
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/66283452/194964226-54bbb2b2-424e-4128-b958-b82ded2581d5.png" alt="drawing" width="850"/>
-</p>
-
----
-- ### 5th - Stores Sell more after the 10th day of each month.
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/66283452/194964232-b28632ac-2e6d-4e5b-a302-1c5f2c533d3d.png" alt="drawing" width="850"/>
-</p>
 
 # 6. **Machine Learning Models**
 
@@ -136,7 +135,7 @@ The initial performance for all seven algorithms are displayed below (ordered by
 
 <i>K here is either equal to 20,000 or 40,000, given our business problem. </i>
 
-<p align="justify"> The <b>Light GBM Classifier</b> model will be chosen for hyperparameter tuning, since it's by far the fastest algorithm to train and tune, whilst the results were similar to CatBoost and AdaBoost. </p>
+<p align="justify"> The <b>Light GBM Classifier</b> model will be chosen for hyperparameter tuning, since it's by far the fastest algorithm to train and tune, with similar results to CatBoost and AdaBoost. </p>
 
 LGBM speed in comparison to other ensemble algorithms trained in this dataset:
 - 4.7 times faster than CatBoost 
@@ -144,11 +143,11 @@ LGBM speed in comparison to other ensemble algorithms trained in this dataset:
 - 30.6 times faster than AdaBoost
 - 63.2 times faster than Random Forest
 
-<p align="justify"> At first glance the models performances don't look so great, and that's due to short amount of variables, on which many are too categorical or binary, or simply those don't have much information content. 
+<p align="justify"> At first glance the models performances don't look so great, and that's due to short amount of variables, on which many are categorical or binary, or simply those don't contain much information. 
 
 However, <b>for this business problem</b> this isn't a major concern, since the goal here isn't finding the best possible prediction on whether a customer will buy the new insurance or not, but to <b>create a score that ranks clients in a ordered list, so that the sales team can contact them in order to sell the new vehicle insurance</b>.</p>
 
-After tuning LGBM's hyperparameters using [Bayesian Optimization with Optuna](https://optuna.readthedocs.io/en/stable/index.html) the model performance has improved: 
+After tuning LGBM's hyperparameters using [Bayesian Optimization with Optuna](https://optuna.readthedocs.io/en/stable/index.html) the model performance has improved on the Precision at K, and decreased on Recall at K, which was expected: 
 
 <div align="center">
 
@@ -172,13 +171,19 @@ In addition two curves can be plotted:
 
 - <b>Cumulative Gains Curve</b>, indicating the percentage of customers, ordered by probability score, containing a percentage of all customers interested in the new insurance. 
 
-- <b>Lift Curve</b>, which indicates how many times the ML model is better than the baseline model (original model used by Insuricare).
+- <b>Lift Curve</b>, which indicates how many times the ML model is better than the baseline model (original model used by Insuricare). </i> </p>
+
+# 7. **Business and Financial Results**
+
+## 7.1. Business Results
+
+**1) By making 20,000 calls how many interested customers can Insuricare reach with the new model?**
 
 
 
-</i> </p>
 
-## 6.1. Brief Financial Results:
+
+
 
 <p align="justify"> Below there are displayed two tables with brief financial results given by the LGBM model, as the complete financial results will be explained in the next <a href="https://github.com/brunodifranco/project-rossmann-sales#7-model-deployment"> section </a>. </p>
 
