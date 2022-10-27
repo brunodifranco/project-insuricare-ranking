@@ -41,8 +41,8 @@ The training data was collected from a PostgreSQL Database. The initial features
 
 # 3. **Business Assumptions and Definitions**
 
-- Cross-selling is strategy used to sell products associated with another product already owned by the customer. In this project, health insurance and vehicle insurance are the products. 
-- Learning to rank is a machine learning application, in order to rank a variable. In this project, we are ranking customers in a list, from the most likely customer to buy the new insurance to the least likely one. This list will be provided by the ML model.
+- Cross-selling is a strategy used to sell products associated with another product already owned by the customer. In this project, health insurance and vehicle insurance are the products. 
+- Learning to rank is a machine learning application. In this project, we are ranking customers in a list, from the most likely customer to buy the new insurance to the least likely one. This list will be provided by the ML model.
 
 # 4. **Solution Plan**
 ## 4.1. How was the problem solved?
@@ -55,21 +55,21 @@ The training data was collected from a PostgreSQL Database. The initial features
 
 - <b> Data Cleaning </b>: Checking data types and Nan's. Other tasks such as: renaming columns, dealing with outliers, changing data types weren't necessary at this point. 
 
-- <p align="justify"> <b> Exploratory Data Analysis (EDA) </b>: Exploring the data in order to obtain business experience, look for useful business insights and find important features for the ML model. The top business insights found are available at <a href="https://github.com/brunodifranco/project-rossmann-sales#5-top-business-insights"> Section 4 </a>. </p>
+- <p align="justify"> <b> Exploratory Data Analysis (EDA) </b>: Exploring the data in order to obtain business experience, look for useful business insights and find important features for the ML model. The top business insights found are available at <a href="https://github.com/brunodifranco/project-insuricare-ranking#5-top-business-insights"> Section 5</a>. </p>
 
 - <b> Feature Engineering </b>: Editing original features, so that those could be used in the ML model. 
 
 - <b> Data Preparation </b>: Applying <a href="https://www.atoti.io/articles/when-to-perform-a-feature-scaling/"> Rescaling Techniques</a> in the data, as well as <a href="https://www.geeksforgeeks.org/feature-encoding-techniques-machine-learning/">Enconding Methods</a>, to deal with categorical variables. 
 
-- <b> Feature Selection </b>: Selecting the best features to use in the ML model by using <a href="https://towardsdatascience.com/feature-selection-using-random-forest-26d7b747597f"> Random Forest </a>. 
+- <b> Feature Selection </b>: Selecting the best features to use in the ML model by using <a href="https://towardsdatascience.com/feature-selection-using-random-forest-26d7b747597f"> Random Forest</a>. 
 
-- <p align="justify"> <b> Machine Learning Modeling </b>: Training Classificaion Algorithms with cross-validation. The best model was selected to be improved via Bayesian Optimization with Optuna. More information at <a href="https://github.com/brunodifranco/project-rossmann-sales#6-machine-learning-models">Section 5 </a>. </p>
+- <p align="justify"> <b> Machine Learning Modeling </b>: Training Classification Algorithms with cross-validation. The best model was selected to be improved via Bayesian Optimization with Optuna. More information in <a href="https://github.com/brunodifranco/project-insuricare-ranking#6-machine-learning-models">Section 6</a>. </p>
 
 - <b> Model Evaluation </b>: Evaluating the model using two metrics: Precision at K and Recall at K, as well as two curves: Cumulative Gains and Lift Curves. 
 
-- <b> Results </b>: Translating the ML model's to financial and business performance.
+- <b> Results </b>: Translating the ML model to financial and business performance.
 
-- <p align="justify"> <b> Model Deployment </b>: Providing the ranked customers, alonside a propensity score, in Google Sheets. This is the project's <b> Data Science Product </b>, and it can be accessed from anywhere. More information at <a href="https://github.com/brunodifranco/project-rossmann-sales#7-model-deployment"> Section 6 </a>. </p>
+- <p align="justify"> <b> Propensity Score List and Model Deployment </b>: Providing a full list of the 76 thousand customers sorted by propensity score, as well as a Google Sheets that returns propensity score and ranks customers. This is the project's <b>Data Science Product</b>, and it can be accessed from anywhere. More information in <a href="https://github.com/brunodifranco/project-insuricare-ranking#7-business-and-financial-results"> Section 7</a>. </p>
   
 ## 4.2. Tools and techniques used:
 - [Python 3.10.8](https://www.python.org/downloads/release/python-3108/), [Pandas](https://pandas.pydata.org/), [Matplotlib](https://matplotlib.org/), [Seaborn](https://seaborn.pydata.org/) and [Sklearn](https://scikit-learn.org/stable/).
@@ -132,7 +132,7 @@ The initial performance for all seven algorithms are displayed below (ordered by
 |      KNN Classifier      | 0.2739 +/- 0.003   |0.7314 +/- 0.0081|
 </div>
 
-<i>K here is either equal to 20,000 or 40,000, given our business problem. </i>
+<i>K is either equal to 20,000 or 40,000, given our business problem. </i>
 
 <p align="justify"> The <b>Light GBM Classifier</b> model will be chosen for hyperparameter tuning, since it's by far the fastest algorithm to train and tune, with similar results to CatBoost and AdaBoost. </p>
 
@@ -142,7 +142,7 @@ LGBM speed in comparison to other ensemble algorithms trained in this dataset:
 - 30.6 times faster than AdaBoost
 - 63.2 times faster than Random Forest
 
-<p align="justify"> At first glance the models performances don't look so great, and that's due to short amount of variables, on which many are categorical or binary, or simply those don't contain much information. 
+<p align="justify"> At first glance the models performances don't look so great, and that's due to the short amount of variables, on which many are categorical or binary, or simply those don't contain much information. 
 
 However, <b>for this business problem</b> this isn't a major concern, since the goal here isn't finding the best possible prediction on whether a customer will buy the new insurance or not, but to <b>create a score that ranks clients in a ordered list, so that the sales team can contact them in order to sell the new vehicle insurance</b>.</p>
 
@@ -166,7 +166,7 @@ Instead, **ranking metrics** will be used:
   
 - **Recall at K** : Shows the fraction of correct predictions made until K out of all true examples. 
 
-In addition two curves can be plotted: 
+In addition, two curves can be plotted: 
 
 - <b>Cumulative Gains Curve</b>, indicating the percentage of customers, ordered by probability score, containing a percentage of all customers interested in the new insurance. 
 
@@ -183,7 +183,7 @@ In addition two curves can be plotted:
 
 <p align="justify"> 
 
-- 20,000 calls represents 26.24% of our database. So if the Sales Team were to make all these calls Insuricare would be able to contact 72.30% of customers interest in the new vehicle insurance, since 0.7230 is our recall at 20,000. </p>
+- 20,000 calls represents 26.24% of our database. So if the Sales Team were to make all these calls Insuricare would be able to contact 72.30% of customers interested in the new vehicle insurance, since 0.7230 is our recall at 20,000. </p>
 
 - As seen from the Lift Curve, our **LGBM model is 2.75 times better than the baseline model at 20,000 calls.** 
 
@@ -193,21 +193,21 @@ In addition two curves can be plotted:
   <img src="https://user-images.githubusercontent.com/66283452/198152040-929e3f17-d07e-401a-892c-50bf9c01f475.png" alt="drawing" width="1000"/>
 </p>
 
-- 40,000 calls represents 52.48% of our database. So if the sales team were to make all these calls Insuricare would be able to contact 99.48% of customers interest in the new vehicle insurance, since 0.9948 is our recall at 40,000. 
+- 40,000 calls represents 52.48% of our database. So if the sales team were to make all these calls Insuricare would be able to contact 99.48% of customers interested in the new vehicle insurance, since 0.9948 is our recall at 40,000. 
 
 - At 40,000 calls, our **LGBM model is around 1.89 times better than the baseline model.**  
 
 ## 7.2. Expected Financial Results
 
-To explore the expected financial results of our model let's consider a few assumptions:
+To explore the expected financial results of our model, let's consider a few assumptions:
 
-- The customers database that will be reached out is composed of 76,222 clients.
+- The customer database that will be reached out is composed of 76,222 clients.
 - We expect 12.28% of these customers to be interested in the new vehicle insurance, since it's the percentage of interest people that participated in the Insuricare research. 
-- The annual premium for each of these new vehicle insurance customers will be US$ 2,630 yearly. **
+- The annual premium for each of these new vehicle insurance customers will be US$ 2,630 yearly. *
 
-** <i> The annual premium of US$ 2,630 is set for realistic purposes, since it's the lowest and most common value in the dataset. </i>
+*<i> The annual premium of US$ 2,630 is set for realistic purposes, since it's the lowest and most common value in the dataset. </i>
 
-Th expected financial results and comparisons are shown below:
+The expected financial results and comparisons are shown below:
 
 <div align="center">
 
@@ -221,11 +221,11 @@ Th expected financial results and comparisons are shown below:
 
 <i> $\Delta$ (LGBM, Baseline) is the difference between models. </i>
 
-As seen above the LGBM model can provide much better results in comparison to the baseline model, with a annual financial result around 275% better for 20,000 calls and 189% better for 40,000 calls, which is exactly what was shown in the Lift Curve. 
+As seen above the LGBM model can provide much better results in comparison to the baseline model, with an annual financial result around 275% better for 20,000 calls and 189% better for 40,000 calls, which is exactly what was shown in the Lift Curve. 
 
 # 8. **Propensity Score List and Model Deployment**
 
-<p align="justify"> The full list sorted by propensity score is available for download <a href="https://github.com/brunodifranco/project-insuricare-ranking/blob/main/insuricare_list.xlsx">here</a>. However, for other new future customers it was necessary to deploy the model. In this project Google Sheets and Render Cloud were chosen for that matter. The idea behind this is to facilitate the predictions access for any new given data, as those can be checked from anywhere and from any electronic device, as long as internet connection is available. The spreadsheet will return you the sorted propensity score for each client in the requested dataset, all you have to do is click on the "Propensity Score" buttom, then on "Get Prediction".
+<p align="justify"> The full list sorted by propensity score is available for download <a href="https://github.com/brunodifranco/project-insuricare-ranking/blob/main/insuricare_list.xlsx">here</a>. However, for other new future customers it was necessary to deploy the model. In this project Google Sheets and Render Cloud were chosen for that matter. The idea behind this is to facilitate the predictions access for any new given data, as those can be checked from anywhere and from any electronic device, as long as internet connection is available. The spreadsheet will return you the sorted propensity score for each client in the requested dataset, all you have to do is click on the "Propensity Score" button, then on "Get Prediction".
 
 <b> Click on here to access the spreadsheet </b>[![Sheets](https://www.google.com/images/about/sheets-icon.svg)](https://docs.google.com/spreadsheets/d/1K2tJP6mVJwux4qret1Dde9gQ23KsDRGRl8eJbsigwic/edit?usp=sharing)
 
@@ -236,7 +236,7 @@ As seen above the LGBM model can provide much better results in comparison to th
 # 9. **Conclusion**
 In this project the main objective was accomplished:
 
- <p align="justify"> <b> We managed to provide a list of new customers ordered by their buy propensity score and a spreadsheet that returns the buy propensity score for other new future customers. Now, the Sales Team can focus their attention on the 20,000 or 40,000 first customers of the list, and futurelly focus on the top K customers of the new list. </b> In addition to that, five interesting and useful insights were found through Exploratory Data Analysis (EDA), so that those can be properly used by Insuricare, as well as Expected Financial Results. </p>
+ <p align="justify"> <b> We managed to provide a list of new customers ordered by their buy propensity score and a spreadsheet that returns the buy propensity score for other new future customers. Now, the Sales Team can focus their attention on the 20,000 or 40,000 first customers on the list, and in the future focus on the top K customers of the new list. </b> In addition to that, five interesting and useful insights were found through Exploratory Data Analysis (EDA), so that those can be properly used by Insuricare, as well as Expected Financial Results. </p>
  
 # 10. **Next Steps**
 <p align="justify"> Further on, this solution could be improved by a few strategies:
