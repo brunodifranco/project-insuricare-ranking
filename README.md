@@ -93,14 +93,14 @@ The training data was collected from a PostgreSQL Database, while the test data 
 --- 
 - ### 2nd - Customers with older vehicles are more likely to buy vehicle insurance.
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/66283452/198151788-1018458c-8e67-4ead-9d15-76622b4df287.png" alt="drawing" width="850"/>
+  <img src="https://user-images.githubusercontent.com/66283452/198151788-1018458c-8e67-4ead-9d15-76622b4df287.png" alt="drawing" width="800"/>
 </p>
 
 --- 
 
 - ### 3rd - Men are more likely to buy the new vehicle insurance than women.
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/66283452/198151862-4de5cab2-1647-4aae-bc9a-b0772e91ef18.png" alt="drawing" width="850"/>
+  <img src="https://user-images.githubusercontent.com/66283452/198151862-4de5cab2-1647-4aae-bc9a-b0772e91ef18.png" alt="drawing" width="800"/>
 </p>
 
 ---
@@ -204,11 +204,10 @@ To explore the expected financial results of our model let's consider a few assu
 - The customers database that will be reached out is composed of 76,222 clients.
 - We expect 12.28% of these customers to be interested in the new vehicle insurance, since it's the percentage of interest people that participated in the Insuricare research. 
 - The annual premium for each of these new vehicle insurance customers will be US$ 2,630 yearly. **
-  
+
 ** <i> The annual premium of US$ 2,630 is set for realistic purposes, since it's the lowest and most common value in the dataset. </i>
 
 Th expected financial results and comparisons are shown below:
-
 
 <div align="center">
 
@@ -224,7 +223,6 @@ Th expected financial results and comparisons are shown below:
 
 As seen above the LGBM model can provide much better results in comparison to the baseline model, with a annual financial result around 275% better for 20,000 calls and 189% better for 40,000 calls, which is exactly what was shown in the Lift Curve. 
 
-
 # 8. **Propensity Score List and Model Deployment**
 
 <p align="justify"> The full list sorted by propensity score is available for download <a href="https://github.com/brunodifranco/project-insuricare-ranking/blob/main/insuricare_list.xlsx">here</a>. However, for other new future customers it was necessary to deploy the model. In this project Google Sheets and Render Cloud were chosen for that matter. The idea behind this is to facilitate the predictions access for any new given data, as those can be checked from anywhere and from any electronic device, as long as internet connection is available. The spreadsheet will return you the sorted propensity score for each client in the requested dataset, all you have to do is click on the "Propensity Score" buttom, then on "Get Prediction".
@@ -238,7 +236,7 @@ As seen above the LGBM model can provide much better results in comparison to th
 # 9. **Conclusion**
 In this project the main objective was accomplished:
 
- <p align="justify"> <b> We managed to provide, by using a ML model, an ordered list of new customers by their buy propensity score and a spreadsheet that returns the buy propensity score for other new future customers. Now, the Sales Team can focus their attention on the 20,000 or 40,000 first customers of the list, and futurelly focus on the top K customers of the new list. </b> In addition to that, five interesting and useful insights were found through Exploratory Data Analysis (EDA), so that those can be properly used by Insuricare, as well as Expected Financial Results. </p>
+ <p align="justify"> <b> We managed to provide a list of new customers ordered by their buy propensity score and a spreadsheet that returns the buy propensity score for other new future customers. Now, the Sales Team can focus their attention on the 20,000 or 40,000 first customers of the list, and futurelly focus on the top K customers of the new list. </b> In addition to that, five interesting and useful insights were found through Exploratory Data Analysis (EDA), so that those can be properly used by Insuricare, as well as Expected Financial Results. </p>
  
 # 10. **Next Steps**
 <p align="justify"> Further on, this solution could be improved by a few strategies:
