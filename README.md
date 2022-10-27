@@ -11,9 +11,9 @@
 *The in-depth Python code explanation is available in [this](https://github.com/brunodifranco/project-rossmann-sales/blob/main/rossmann.ipynb) Jupyter Notebook.*
 
 # 1. **Insuricare and Business Problem**
-<p align="justify"> Insuricare is an insurance company that has provided health insurance to its customers, and now they are willing to sell a new vehicle insurance to their clients. To achieve that, Insuricare conducted a research with around 381 thousand customers that bought the health insurance last year, asking each one if they would be interested in buying the new insurance. This data was stored in the company's database, alongside other customers' features. 
+<p align="justify"> Insuricare is an insurance company that has provided health insurance to its customers, and now they are willing to sell a new vehicle insurance to their clients. To achieve that, Insuricare conducted a research with around 305 thousand customers that bought the health insurance last year, asking each one if they would be interested in buying the new insurance. This data was stored in the company's database, alongside other customers' features. 
 
-Then, Insuricare Sales Team selected around 127 thousand new customers, which are people that didn't respond to the research, to offer the new vehicle insurance. However, due to a limit call <i>restriction*</i> Insuricare must choose a way of selecting which clients to call: </p>
+Then, Insuricare Sales Team selected around 76 thousand new customers, which are people that didn't respond to the research, to offer the new vehicle insurance. However, due to a limit call <i>restriction*</i> Insuricare must choose a way of selecting which clients to call: </p>
 
 - Either select the customers randomly, which is our <b>baseline model</b>.
   
@@ -178,11 +178,25 @@ In addition two curves can be plotted:
 ## 7.1. Business Results
 
 **1) By making 20,000 calls how many interested customers can Insuricare reach with the new model?**
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/66283452/198152035-48c27ead-53f8-440e-af92-f049456dac33.png" alt="drawing" width="1000"/>
+</p>
 
+<p align="justify"> 
 
-![business20k](https://user-images.githubusercontent.com/66283452/198152035-48c27ead-53f8-440e-af92-f049456dac33.png)
-![business40k](https://user-images.githubusercontent.com/66283452/198152040-929e3f17-d07e-401a-892c-50bf9c01f475.png)
+- 20,000 calls represents 26.24% of our database. So if the Sales Tteam were to make all these calls Insuricare would be able to contact 72.30% of customers interest in the new vehicle insurance, since 0.7230 is our recall at 20,000. </p>
 
+- As seen from the Lift Curve, our **LGBM model is 2.75 times better than the baseline model at 20,000 calls.** 
+
+**2) Now increasing the amount of calls to 40,000 how many interested customers can Insuricare reach with the new model?**
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/66283452/198152040-929e3f17-d07e-401a-892c-50bf9c01f475.png" alt="drawing" width="1000"/>
+</p>
+
+- 40,000 calls represents 52.48% of our database. So if the sales team were to make all these calls Insuricare would be able to contact 99.48% of customers interest in the new vehicle insurance, since 0.9948 is our recall at 40,000. 
+
+- At 40,000 calls, our **LGBM model is around 1.89 times better than the baseline model.**  
 
 # 7. **Model Deployment**
 
