@@ -1,4 +1,4 @@
-<h1 align="center"> Creating a bot that predicts Rossmann future sales</h1>
+<h1 align="center"> Creating a customer ranking system for insurance company</h1>
 
 <p align="center">A learning to rank cross-sell project</p>
 
@@ -105,7 +105,6 @@ The training data was collected from a PostgreSQL Database, while the test data 
 
 ---
 
-
 # 6. **Machine Learning Models**
 
 <p align="justify"> This was the most fundamental part of this project, since it's in ML modeling where we can provide an ordered list of these new customers, based on their propensity score of buying the new insurance. Seven models were trained using cross-validation: </p>
@@ -128,7 +127,7 @@ The initial performance for all seven algorithms are displayed below (ordered by
 |    AdaBoost Classifier   | 0.3098 +/- 0.0018  |0.8273 +/- 0.0049|
 |      LGBM Classifier     | 0.3075 +/- 0.0015  |0.8209 +/- 0.004 | 
 |    Logistic Regression   | 0.3058 +/- 0.0012  |0.8165 +/- 0.0033|
-|      XGB Classifier      | 0.2992 +/- 0.0018  |0.7988 +/- 0.0049|
+|      XGBoost Classifier  | 0.2992 +/- 0.0018  |0.7988 +/- 0.0049|
 | Random Forest Classifier | 0.2949 +/- 0.0014  |0.7874 +/- 0.0037|
 |      KNN Classifier      | 0.2739 +/- 0.003   |0.7314 +/- 0.0081|
 </div>
@@ -184,7 +183,7 @@ In addition two curves can be plotted:
 
 <p align="justify"> 
 
-- 20,000 calls represents 26.24% of our database. So if the Sales Tteam were to make all these calls Insuricare would be able to contact 72.30% of customers interest in the new vehicle insurance, since 0.7230 is our recall at 20,000. </p>
+- 20,000 calls represents 26.24% of our database. So if the Sales Team were to make all these calls Insuricare would be able to contact 72.30% of customers interest in the new vehicle insurance, since 0.7230 is our recall at 20,000. </p>
 
 - As seen from the Lift Curve, our **LGBM model is 2.75 times better than the baseline model at 20,000 calls.** 
 
@@ -197,6 +196,34 @@ In addition two curves can be plotted:
 - 40,000 calls represents 52.48% of our database. So if the sales team were to make all these calls Insuricare would be able to contact 99.48% of customers interest in the new vehicle insurance, since 0.9948 is our recall at 40,000. 
 
 - At 40,000 calls, our **LGBM model is around 1.89 times better than the baseline model.**  
+
+## 7.2. Expected Financial Results
+
+To explore the expected financial results of our model let's consider a few assumptions:
+
+- The customers database that will be reached out is composed of 76,222 clients.
+- We expect 12.28% of these customers to be interested in the new vehicle insurance, since it's the percentage of interest people that participated in the Insuricare research. 
+- The annual premium for each of these new vehicle insurance customers will be US$ 2,630 yearly. **
+  
+** <i> The annual premium of US$ 2,630 is set for realistic purposes, since it's the lowest and most common value in the dataset. </i>
+
+Th expected financial results and comparisons are shown below:
+
+
+<div align="center">
+
+|    **Model**    |  **Annual Revenue - 20,000 calls** | **Annual Revenue - 40,000 calls** |  **Interested clients reached out - 20,000 calls** | **Interested clients reached out - 40,000 calls** |
+|:---------------:|:---:|:-----------------------------------:|:---:|:---------------------------------------:|
+|       LGBM      | US$ 17,731,460.00    |US$ 24,508,970.00           | 6742   |9319                  |
+|     Baseline    |  US$ 6,461,910.00    |US$ 12,923,820.00           | 2457  |4914                  |
+| $\Delta$ (LGBM, Baseline) |  US$ 11,269,550.00     |US$ 11,585,150.00          |  4285   |                   4405                  |
+
+</div>
+
+<i> $\Delta$ (LGBM, Baseline) is the difference between models. </i>
+
+As seen above the LGBM model can provide much better results in comparison to the baseline model, with a annual financial result around 275% better for 20,000 calls and 189% better for 40,000 calls, which is exactly what was shown in the Lift Curve. 
+
 
 # 7. **Model Deployment**
 
