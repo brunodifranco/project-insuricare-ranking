@@ -225,9 +225,9 @@ Th expected financial results and comparisons are shown below:
 As seen above the LGBM model can provide much better results in comparison to the baseline model, with a annual financial result around 275% better for 20,000 calls and 189% better for 40,000 calls, which is exactly what was shown in the Lift Curve. 
 
 
-# 8. **Model Deployment**
+# 8. **Propensity Score List and Model Deployment**
 
-<p align="justify">  The model was deployed in Google Sheets, by using firsly Render Cloud. The idea behind this is to facilitate the predictions access for any given data, as those can be checked from anywhere and from any electronic device, as long as internet connection is available. The spreadsheet will return you the sorted propensity score for each client in the requested dataset, all you have to do is click on the "Propensity Score" buttom then on "Get Prediction".
+<p align="justify"> The full list sorted by propensity score is available for download [here](https://github.com/brunodifranco/project-rossmann-sales/blob/main/rossmann.ipynb). However, for other new future customers it was necessary to deploy the model. In this project Google Sheets and Render Cloud were chosen for that matter. The idea behind this is to facilitate the predictions access for any new given data, as those can be checked from anywhere and from any electronic device, as long as internet connection is available. The spreadsheet will return you the sorted propensity score for each client in the requested dataset, all you have to do is click on the "Propensity Score" buttom then on "Get Prediction".
 
 <b> Click on here to access the spreadsheet </b>[![Sheets](https://www.google.com/images/about/sheets-icon.svg)](https://docs.google.com/spreadsheets/d/1K2tJP6mVJwux4qret1Dde9gQ23KsDRGRl8eJbsigwic/edit?usp=sharing)
 
@@ -238,18 +238,16 @@ As seen above the LGBM model can provide much better results in comparison to th
 # 9. **Conclusion**
 In this project the main objective was accomplished:
 
- <p align="justify"> <b> A model that can provide good sales predictions for each store over the next six weeks was successfully trained and deployed in a Telegram Bot, which fulfilled CEO' s requirement, for now it's possible to determine the best resource allocation for each store renovation. </b> In addition to that, five interesting and useful insights were found through Exploratory Data Analysis (EDA), so that those can be properly used by Rossmann CEO. </p>
+ <p align="justify"> <b> We managed to provide, by using a ML model, an ordered list of new customers by their buy propensity score and a spreadsheet that returns the buy propensity score for other new future customers. Now, the Sales Team can focus their attention on the 20,000 or 40,000 first customers of the list, and futurelly focus on the top K customers of the new list. </b> In addition to that, five interesting and useful insights were found through Exploratory Data Analysis (EDA), so that those can be properly used by Insuricare, as well as Expected Financial Results. </p>
  
 # 10. **Next Steps**
 <p align="justify"> Further on, this solution could be improved by a few strategies:
-
- - Using <a href="https://towardsdatascience.com/an-introduction-to-time-series-analysis-with-arima-a8b9c9a961fb">ARIMA</a> to predict the amount of customers over the next six weeks, so that the customers column could be added to the final model. </p>
- 
- - Tune even more the regression algorithm, by applying a <a href="https://machinelearningmastery.com/what-is-bayesian-optimization/">Bayesian Optimization</a> for instance. 
   
- - Try other regression algorithms to predict the sales for each store.
- 
- - Use different models for the stores on which it's more difficult (higher MAE and MAPE) to predict the sales.
+ - Conducting more market researches, so that more useful information on customers could be collected, since there was a lack of meaningful variables.
+  
+ - Applying <a href="https://builtin.com/data-science/step-step-explanation-principal-component-analysis">Principal Component Analysis (PCA) </a> in the dataset.
+  
+ - Try other classification algorithms that could better capture the phenomenon.
 
 # Contact
 
