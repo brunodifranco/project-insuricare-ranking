@@ -3,7 +3,7 @@
 <p align="center">A learning to rank cross-sell project</p>
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/66283452/195202224-01bfd468-9f1c-4e83-af60-b101312a98e3.svg" alt="drawing" width="800"/>
+  <img src="https://user-images.githubusercontent.com/66283452/198294567-6a53415a-7b3e-48ea-ab58-482d849c6309.svg" alt="drawing" width="400"/>
 </p>
 
 *Obs: Business problem, company and data are fictitious.*
@@ -225,23 +225,23 @@ Th expected financial results and comparisons are shown below:
 As seen above the LGBM model can provide much better results in comparison to the baseline model, with a annual financial result around 275% better for 20,000 calls and 189% better for 40,000 calls, which is exactly what was shown in the Lift Curve. 
 
 
-# 7. **Model Deployment**
+# 8. **Model Deployment**
 
-<p align="justify">  As previously mentioned, the complete financial results can be consulted by using the Telegram Bot. The idea behind this is to facilitate the access of any store sales prediction, as those can be checked from anywhere and from any electronic device, as long as internet connection is available.  
-The bot will return you a sales prediction over the next six weeks for any available store, <b> all you have to do is send him the store number in this format "/store_number" (e.g. /12, /23, /41, etc) </b>. If a store number if non existent the message "Store not available" will be returned, and if you provide a text that isn't a number the bot will ask you to enter a valid store id. 
+<p align="justify">  The model was deployed in Google Sheets, by using firsly Render Cloud. The idea behind this is to facilitate the predictions access for any given data, as those can be checked from anywhere and from any electronic device, as long as internet connection is available. The spreadsheet will return you the sorted propensity score for each client in the requested dataset, all you have to do is click on the "Propensity Score" buttom then on "Get Prediction".
 
-To link to chat with the Rossmann Bot is [![image](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/rossmann_project_api_bot)
+The link to Google Sheets is available [here](https://docs.google.com/spreadsheets/d/1K2tJP6mVJwux4qret1Dde9gQ23KsDRGRl8eJbsigwic/edit?usp=sharing
+)
 
-<i> Because the deployment was made in a free cloud (Render) it could take a few minutes for the bot to respond, <b> in the first request. </b> In the following requests it should respond instantly. </i>
+<i> Because the deployment was made in a free cloud (Render) it could take a few minutes for the spreadsheet to provide a response, <b> in the first request. </b> In the following requests it should respond instantly. </i>
 
 </p>
 
-# 8. **Conclusion**
+# 9. **Conclusion**
 In this project the main objective was accomplished:
 
  <p align="justify"> <b> A model that can provide good sales predictions for each store over the next six weeks was successfully trained and deployed in a Telegram Bot, which fulfilled CEO' s requirement, for now it's possible to determine the best resource allocation for each store renovation. </b> In addition to that, five interesting and useful insights were found through Exploratory Data Analysis (EDA), so that those can be properly used by Rossmann CEO. </p>
  
-# 9. **Next Steps**
+# 10. **Next Steps**
 <p align="justify"> Further on, this solution could be improved by a few strategies:
 
  - Using <a href="https://towardsdatascience.com/an-introduction-to-time-series-analysis-with-arima-a8b9c9a961fb">ARIMA</a> to predict the amount of customers over the next six weeks, so that the customers column could be added to the final model. </p>
