@@ -22,7 +22,7 @@ Then, Insuricare Sales Team selected around 76 thousand new customers, which are
 <i> * Insuricare Sales Team would like to make 20,000 calls, but it can be pushed to 40,000 calls. </i>
 
 # 2. **Data Overview**
-The training data was collected from a PostgreSQL Database, while the test data is available at [Kaggle](https://www.kaggle.com/datasets/anmolkumar/health-insurance-cross-sell-prediction/code). The initial features descriptions are available below:
+The training data was collected from a PostgreSQL Database. The initial features descriptions are available below:
 
 | **Feature**          | **Definition** |
 |----------------------|----------------|
