@@ -76,7 +76,7 @@ The training data was collected from a PostgreSQL Database. The initial features
 - [SQL](https://www.w3schools.com/sql/) and [PostgresSQL](https://www.postgresql.org/).
 - [Jupyter Notebook](https://jupyter.org/) and [VSCode](https://code.visualstudio.com/).
 - [Flask](https://flask.palletsprojects.com/en/2.2.x/) and [Python API's](https://realpython.com/api-integration-in-python/).  
-- [Render Cloud](https://render.com/) and [Google Sheets](https://www.google.com/sheets/about/).
+- [Render Cloud](https://render.com/), [Google Sheets](https://www.google.com/sheets/about/) and [JavaScript](https://www.javascript.com/).
 - [Git](https://git-scm.com/) and [Github](https://github.com/).
 - [Exploratory Data Analysis (EDA)](https://towardsdatascience.com/exploratory-data-analysis-8fc1cb20fd15). 
 - [Techniques for Feature Selection](https://machinelearningmastery.com/feature-selection-with-real-and-categorical-data/).
