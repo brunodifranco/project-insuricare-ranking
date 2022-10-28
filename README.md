@@ -8,7 +8,7 @@
 
 *Obs: Business problem, company and data are fictitious.*
 
-*The in-depth Python code explanation is available in [this](https://github.com/brunodifranco/project-rossmann-sales/blob/main/rossmann.ipynb) Jupyter Notebook.*
+*The in-depth Python code explanation is available in [this](https://github.com/brunodifranco/project-insuricare-ranking/blob/main/insuricare.ipynb) Jupyter Notebook.*
 
 # 1. **Insuricare and Business Problem**
 <p align="justify"> Insuricare is an insurance company that has provided health insurance to its customers, and now they are willing to sell a new vehicle insurance to their clients. To achieve that, Insuricare conducted a research with around 305 thousand customers that bought the health insurance last year, asking each one if they would be interested in buying the new insurance. This data was stored in the company's database, alongside other customers' features. 
