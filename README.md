@@ -1,4 +1,4 @@
-<h1 align="center"> Creating a customer ranking system for insurance company</h1>
+<h1 align="center"> Creating a customer ranking system for an insurance company</h1>
 
 <p align="center">A learning to rank cross-sell project</p>
 
