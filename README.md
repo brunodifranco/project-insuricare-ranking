@@ -15,7 +15,7 @@
 
 Then, Insuricare Sales Team selected around 76 thousand new customers, which are people that didn't respond to the research, to offer the new vehicle insurance. However, due to a limit call <i>restriction*</i> Insuricare must choose a way of selecting which clients to call: </p>
 
-- Either select the customers randomly, which is our <b>baseline model</b>.
+- Either select the customers randomly, which is the <b>baseline model</b> previously used by the company.
   
 - Or, the Data Science Team will provide, by using a Machine Learning (ML) model, an ordered list of these new customers, based on their propensity score of buying the new insurance.
 
