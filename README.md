@@ -221,7 +221,7 @@ The expected financial results and comparisons are shown below:
 
 <i> $\Delta$ (LGBM, Baseline) is the difference between models. </i>
 
-As seen above the LGBM model can provide much better results in comparison to the baseline model, with an annual financial result around 272% better for 20,000 calls and 189% better for 40,000 calls, which is exactly what was shown in the Lift Curve. 
+As seen above the LGBM model can provide much better results in comparison to the baseline model, with an annual financial result around 172% better for 20,000 calls and 89% better for 40,000 calls, which is exactly what was shown in the Lift Curve. 
 
 # 8. **Propensity Score List and Model Deployment**
 
