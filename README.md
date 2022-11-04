@@ -123,18 +123,18 @@ The initial performance for all seven algorithms are displayed below:
 
 |         **Model**        | **Precision at K** | **Recall at K** |
 |:------------------------:|:------------------:|:---------------:|
-|    CatBoost Classifier   | 0.3099 +/- 0.0011  |0.8274 +/- 0.003 |
-|    AdaBoost Classifier   | 0.3098 +/- 0.0018  |0.8273 +/- 0.0049|
-|      LGBM Classifier     | 0.3075 +/- 0.0015  |0.8209 +/- 0.004 | 
-|    Logistic Regression   | 0.3058 +/- 0.0012  |0.8165 +/- 0.0033|
-|      XGBoost Classifier  | 0.2992 +/- 0.0018  |0.7988 +/- 0.0049|
-| Random Forest Classifier | 0.2949 +/- 0.0014  |0.7874 +/- 0.0037|
-|      KNN Classifier      | 0.2739 +/- 0.003   |0.7314 +/- 0.0081|
+|    LGBM Classifier       | 0.2789 +/- 0.0003  |0.9329 +/- 0.001 |
+|    AdaBoost Classifier   | 0.2783 +/- 0.0007	|0.9309 +/- 0.0023|
+|      CatBoost Classifier | 0.2783 +/- 0.0005	|0.9311 +/- 0.0018| 
+|   XGBoost Classifier     | 0.2771 +/- 0.0006  |0.9270 +/- 0.0022|
+|    Logistic Regression   | 0.2748 +/- 0.0009  |0.9193 +/- 0.0031|
+| Random Forest Classifier | 0.2719 +/- 0.0005  |0.9096 +/- 0.0016|
+|      KNN Classifier      | 0.2392 +/- 0.0006  |0.8001 +/- 0.0019|
 </div>
 
 <i>K is either equal to 20,000 or 40,000, given our business problem. </i>
 
-<p align="justify"> The <b>Light GBM Classifier</b> model will be chosen for hyperparameter tuning, since it's by far the fastest algorithm to train and tune, with similar results to CatBoost and AdaBoost. </p>
+<p align="justify"> The <b>Light GBM Classifier</b> model will be chosen for hyperparameter tuning, since it's by far the fastest algorithm to train and tune, whilst being the one with best results without any tuning. </p>
 
 LGBM speed in comparison to other ensemble algorithms trained in this dataset:
 - 4.7 times faster than CatBoost 
@@ -152,7 +152,7 @@ After tuning LGBM's hyperparameters using [Bayesian Optimization with Optuna](ht
 
 |         **Model**        | **Precision at K** | **Recall at K** |
 |:------------------------:|:------------------:|:---------------:|
-|      LGBM Classifier     |       0.33320  	|     0.72000 	  | 
+|      LGBM Classifier     | 0.2793 +/- 0.0005  |0.9344 +/- 0.0017| 
 
 </div>
 
