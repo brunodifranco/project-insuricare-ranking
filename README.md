@@ -69,7 +69,7 @@ The training data was collected from a PostgreSQL Database. The initial features
 
 - <b> Results </b>: Translating the ML model to financial and business performance.
 
-- <p align="justify"> <b> Propensity Score List and Model Deployment </b>: Providing a full list of the 76 thousand customers sorted by propensity score, as well as a Google Sheets that returns propensity score and ranks customers. This is the project's <b>Data Science Product</b>, and it can be accessed from anywhere. More information in <a href="https://github.com/brunodifranco/project-insuricare-ranking#7-business-and-financial-results"> Section 7</a>. </p>
+- <p align="justify"> <b> Propensity Score List and Model Deployment </b>: Providing a full list of the 76 thousand customers sorted by propensity score, as well as a Google Sheets that returns propensity score and ranks customers (used for future customers). This is the project's <b>Data Science Product</b>, and it can be accessed from anywhere. More information in <a href="https://github.com/brunodifranco/project-insuricare-ranking#7-business-and-financial-results"> Section 7</a>. </p>
   
 ## 4.2. Tools and techniques used:
 - [Python 3.10.8](https://www.python.org/downloads/release/python-3108/), [Pandas](https://pandas.pydata.org/), [Matplotlib](https://matplotlib.org/), [Seaborn](https://seaborn.pydata.org/) and [Sklearn](https://scikit-learn.org/stable/).
@@ -117,7 +117,7 @@ The training data was collected from a PostgreSQL Database. The initial features
 - XGBoost Classifier 
 - Light GBM Classifier
 
-The initial performance for all seven algorithms are displayed below (ordered by Precision at K):
+The initial performance for all seven algorithms are displayed below:
 
 <div align="center">
 
@@ -213,9 +213,9 @@ The expected financial results and comparisons are shown below:
 
 |    **Model**    |  **Annual Revenue - 20,000 calls** | **Annual Revenue - 40,000 calls** |  **Interested clients reached out - 20,000 calls** | **Interested clients reached out - 40,000 calls** |
 |:---------------:|:---:|:-----------------------------------:|:---:|:---------------------------------------:|
-|       LGBM      | US$ 17,731,460.00    |US$ 24,508,970.00           | 6742   |9319                  |
-|     Baseline    |  US$ 6,461,910.00    |US$ 12,923,820.00           | 2457  |4914                  |
-| $\Delta$ (LGBM, Baseline) |  US$ 11,269,550.00     |US$ 11,585,150.00          |  4285   |                   4405                  |
+|       LGBM      | US$ 17,515,800.00    |US$ 24,440,590.00          | 6660   |9293                  |
+|     Baseline    |  US$ 6,446,130.00    |US$ 12,894,890.00           | 2451  |4903                  |
+| $\Delta$ (LGBM, Baseline) |  11,069,670.00     |US$ 11,545,700.00         |  4209   |   4390                  |
 
 </div>
 
