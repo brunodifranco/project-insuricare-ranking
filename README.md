@@ -183,9 +183,9 @@ In addition, two curves can be plotted:
 
 <p align="justify"> 
 
-- 20,000 calls represents 26.24% of our database. So if the Sales Team were to make all these calls Insuricare would be able to contact 72.30% of customers interested in the new vehicle insurance, since 0.7230 is our recall at 20,000. </p>
+- 20,000 calls represents 26.24% of our database. So if the sales team were to make all these calls Insuricare would be able to contact 71.29% of customers interested in the new vehicle insurance, since 0.7129 is our recall at 20,000. </p>
 
-- As seen from the Lift Curve, our **LGBM model is 2.75 times better than the baseline model at 20,000 calls.** 
+- As seen from the Lift Curve, our **LGBM model is 2.72 times better than the baseline model at 20,000 calls.** 
 
 **2) Now increasing the amount of calls to 40,000 how many interested customers can Insuricare reach with the new model?**
 
@@ -193,7 +193,7 @@ In addition, two curves can be plotted:
   <img src="https://user-images.githubusercontent.com/66283452/198152040-929e3f17-d07e-401a-892c-50bf9c01f475.png" alt="drawing" width="1000"/>
 </p>
 
-- 40,000 calls represents 52.48% of our database. So if the sales team were to make all these calls Insuricare would be able to contact 99.48% of customers interested in the new vehicle insurance, since 0.9948 is our recall at 40,000. 
+- 40,000 calls represents 52.48% of our database. So if the sales team were to make all these calls Insuricare would be able to contact 99.48% of customers interested in the new vehicle insurance, since 0.9948 is our recall at 40,000.
 
 - At 40,000 calls, our **LGBM model is around 1.89 times better than the baseline model.**  
 
@@ -221,7 +221,7 @@ The expected financial results and comparisons are shown below:
 
 <i> $\Delta$ (LGBM, Baseline) is the difference between models. </i>
 
-As seen above the LGBM model can provide much better results in comparison to the baseline model, with an annual financial result around 275% better for 20,000 calls and 189% better for 40,000 calls, which is exactly what was shown in the Lift Curve. 
+As seen above the LGBM model can provide much better results in comparison to the baseline model, with an annual financial result around 272% better for 20,000 calls and 189% better for 40,000 calls, which is exactly what was shown in the Lift Curve. 
 
 # 8. **Propensity Score List and Model Deployment**
 
