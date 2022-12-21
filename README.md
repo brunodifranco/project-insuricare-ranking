@@ -1,6 +1,6 @@
-<h1 align="center"> Creating a customer ranking system for an insurance company</h1>
+<h1 align="center"> Creating a Customer Ranking System for an Insurance Company</h1>
 
-<p align="center">A learning to rank cross-sell project</p>
+<p align="center">A Learning to Rank Project</p>
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/66283452/198294567-6a53415a-7b3e-48ea-ab58-482d849c6309.svg" alt="drawing" width="400"/>
