@@ -3,7 +3,7 @@
 <p align="center">A Learning to Rank Project</p>
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/66283452/198294567-6a53415a-7b3e-48ea-ab58-482d849c6309.svg" alt="drawing" width="400"/>
+  <img src="https://user-images.githubusercontent.com/66283452/198294567-6a53415a-7b3e-48ea-ab58-482d849c6309.svg" alt="drawing" width="300"/>
 </p>
 
 *Obs: Business problem, company and data are fictitious.*
